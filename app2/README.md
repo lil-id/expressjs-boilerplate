@@ -1,7 +1,7 @@
-# expressjs-boilerplate
+# app2
 
 ```
-/expressjs-boilerplate
+/app2
 │
 ├── /src
 │   ├── /config
