@@ -15,7 +15,7 @@ services:
       POSTGRES_PASSWORD: randompassword
       POSTGRES_DB: mydb
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - my-network
 
@@ -36,7 +36,7 @@ services:
       dockerfile: Dockerfile
     container_name: app1
     ports:
-      - "9001:9001"
+      - "9002:9002"
     networks:
       - my-network
     restart: always
@@ -49,7 +49,7 @@ services:
       dockerfile: Dockerfile
     container_name: app2
     ports:
-      - "9002:9002"
+      - "9003:9003"
     networks:
       - my-network
     restart: always
@@ -62,7 +62,7 @@ services:
       dockerfile: Dockerfile
     container_name: app3
     ports:
-      - "9003:9003"
+      - "9004:9004"
     networks:
       - my-network
     restart: always

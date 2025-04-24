@@ -9,7 +9,7 @@ app.use('/', todoRoutes);
 app.use('/todos', todoRoutes);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 9003;
+const PORT = process.env.PORT || 9004;
 app.listen(PORT, () => {
   console.log(`App 3 running on http://localhost:${PORT}`);
 });
