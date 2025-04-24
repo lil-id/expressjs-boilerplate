@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    volumes:
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 134217728 # 128Mb
+    environment:
+      POSTGRES_USER: johndoe
+      POSTGRES_PASSWORD: randompassword
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    networks:
+      - my-network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8006:8080"
+    networks:
+      - my-network
+    # Uncomment the next line in production
+    # depends_on:
+    #   - postgres
+
+  app1:
+    build:
+      context: ./app1
+      dockerfile: Dockerfile
+    container_name: app1
+    ports:
+      - "9001:9001"
+    networks:
+      - my-network
+    restart: always
+    depends_on:
+      - postgres
+
+  app2:
+    build:
+      context: ./app2
+      dockerfile: Dockerfile
+    container_name: app2
+    ports:
+      - "9002:9002"
+    networks:
+      - my-network
+    restart: always
+    depends_on:
+      - postgres
+    
+  app3:
+    build:
+      context: ./app3
+      dockerfile: Dockerfile
+    container_name: app3
+    ports:
+      - "9003:9003"
+    networks:
+      - my-network
+    restart: always
+    depends_on:
+      - postgres
+
+networks:
+  my-network:
+    name: my-network

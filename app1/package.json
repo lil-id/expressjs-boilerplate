@@ -1,0 +1,25 @@
+{
+    "name": "app1",
+    "version": "1.0.0",
+    "description": "Express boilerplate",
+    "main": "app.js",
+    "scripts": {
+        "dev": "nodemon app.js",
+        "start": "node app.js",
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@prisma/client": "^6.6.0",
+        "dotenv": "^16.5.0",
+        "express": "^5.1.0",
+        "prisma": "^6.6.0"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "nodemon": "^3.1.10",
+        "supertest": "^7.1.0"
+    }
+}
